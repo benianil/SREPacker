@@ -1,0 +1,517 @@
+[root@kube pack]# /opt/packer build linux.json
+amazon-ebs output will be in this color.
+
+==> amazon-ebs: Prevalidating AMI Name: ami-0f6e68355d2e88eb8
+    amazon-ebs: Found Image ID: ami-0f6e68355d2e88eb8
+==> amazon-ebs: Creating temporary keypair: packer_5d664f8b-4449-fbec-3fa8-10b3b8854826
+==> amazon-ebs: Launching a source AWS instance...
+==> amazon-ebs: Adding tags to source instance
+    amazon-ebs: Adding tag: "Name": "Packer Builder"
+    amazon-ebs: Instance ID: i-0cbc8224f81ace8a0
+==> amazon-ebs: Waiting for instance (i-0cbc8224f81ace8a0) to become ready...
+==> amazon-ebs: Using ssh communicator to connect: 3.81.44.144
+==> amazon-ebs: Waiting for SSH to become available...
+==> amazon-ebs: Connected to SSH!
+==> amazon-ebs: Provisioning with shell script: /tmp/packer-shell289333319
+    amazon-ebs: Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    amazon-ebs: Resolving Dependencies
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package amazon-linux-extras.noarch 0:1.6.8-1.amzn2 will be updated
+    amazon-ebs: ---> Package amazon-linux-extras.noarch 0:1.6.9-1.amzn2 will be an update
+    amazon-ebs: ---> Package amazon-linux-extras-yum-plugin.noarch 0:1.6.8-1.amzn2 will be updated
+    amazon-ebs: ---> Package amazon-linux-extras-yum-plugin.noarch 0:1.6.9-1.amzn2 will be an update
+    amazon-ebs: ---> Package amazon-ssm-agent.x86_64 0:2.3.612.0-1.amzn2 will be updated
+    amazon-ebs: ---> Package amazon-ssm-agent.x86_64 0:2.3.662.0-1.amzn2 will be an update
+    amazon-ebs: ---> Package ec2-instance-connect.noarch 0:1.1-9.amzn2 will be updated
+    amazon-ebs: ---> Package ec2-instance-connect.noarch 0:1.1-10.amzn2 will be an update
+    amazon-ebs: ---> Package kernel.x86_64 0:4.14.138-114.102.amzn2 will be installed
+    amazon-ebs: ---> Package kernel-tools.x86_64 0:4.14.133-113.112.amzn2 will be updated
+    amazon-ebs: ---> Package kernel-tools.x86_64 0:4.14.138-114.102.amzn2 will be an update
+    amazon-ebs: ---> Package kubeadm.x86_64 0:1.15.2-0 will be updated
+    amazon-ebs: ---> Package kubeadm.x86_64 0:1.15.3-0 will be an update
+    amazon-ebs: ---> Package kubectl.x86_64 0:1.15.2-0 will be updated
+    amazon-ebs: ---> Package kubectl.x86_64 0:1.15.3-0 will be an update
+    amazon-ebs: ---> Package kubelet.x86_64 0:1.15.2-0 will be updated
+    amazon-ebs: ---> Package kubelet.x86_64 0:1.15.3-0 will be an update
+    amazon-ebs: ---> Package libssh2.x86_64 0:1.4.3-12.amzn2.2 will be updated
+    amazon-ebs: ---> Package libssh2.x86_64 0:1.4.3-12.amzn2.2.1 will be an update
+    amazon-ebs: --> Finished Dependency Resolution
+    amazon-ebs: --> Running transaction check
+    amazon-ebs: ---> Package kernel.x86_64 0:4.14.123-111.109.amzn2 will be erased
+    amazon-ebs: --> Finished Dependency Resolution
+    amazon-ebs:
+    amazon-ebs: Dependencies Resolved
+    amazon-ebs:
+    amazon-ebs: ================================================================================
+    amazon-ebs:  Package                        Arch   Version                 Repository  Size
+    amazon-ebs: ================================================================================
+    amazon-ebs: Installing:
+    amazon-ebs:  kernel                         x86_64 4.14.138-114.102.amzn2  amzn2-core  20 M
+    amazon-ebs: Updating:
+    amazon-ebs:  amazon-linux-extras            noarch 1.6.9-1.amzn2           amzn2-core  36 k
+    amazon-ebs:  amazon-linux-extras-yum-plugin noarch 1.6.9-1.amzn2           amzn2-core 9.6 k
+    amazon-ebs:  amazon-ssm-agent               x86_64 2.3.662.0-1.amzn2       amzn2-core  15 M
+    amazon-ebs:  ec2-instance-connect           noarch 1.1-10.amzn2            amzn2-core  21 k
+    amazon-ebs:  kernel-tools                   x86_64 4.14.138-114.102.amzn2  amzn2-core 114 k
+    amazon-ebs:  kubeadm                        x86_64 1.15.3-0                kubernetes 8.9 M
+    amazon-ebs:  kubectl                        x86_64 1.15.3-0                kubernetes 9.5 M
+    amazon-ebs:  kubelet                        x86_64 1.15.3-0                kubernetes  22 M
+    amazon-ebs:  libssh2                        x86_64 1.4.3-12.amzn2.2.1      amzn2-core 135 k
+    amazon-ebs: Removing:
+    amazon-ebs:  kernel                         x86_64 4.14.123-111.109.amzn2  installed  100 M
+    amazon-ebs:
+    amazon-ebs: Transaction Summary
+    amazon-ebs: ================================================================================
+    amazon-ebs: Install  1 Package
+    amazon-ebs: Upgrade  9 Packages
+    amazon-ebs: Remove   1 Package
+    amazon-ebs:
+    amazon-ebs: Total download size: 76 M
+    amazon-ebs: Downloading packages:
+    amazon-ebs: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+    amazon-ebs: --------------------------------------------------------------------------------
+    amazon-ebs: Total                                               41 MB/s |  76 MB  00:01
+    amazon-ebs: Running transaction check
+    amazon-ebs: Running transaction test
+    amazon-ebs: Transaction test succeeded
+    amazon-ebs: Running transaction
+    amazon-ebs:   Updating   : kubectl-1.15.3-0.x86_64                                     1/20
+    amazon-ebs:   Updating   : kubelet-1.15.3-0.x86_64                                     2/20
+    amazon-ebs:   Updating   : amazon-linux-extras-1.6.9-1.amzn2.noarch                    3/20
+    amazon-ebs:   Updating   : amazon-linux-extras-yum-plugin-1.6.9-1.amzn2.noarch         4/20
+    amazon-ebs:   Updating   : kubeadm-1.15.3-0.x86_64                                     5/20
+    amazon-ebs:   Installing : kernel-4.14.138-114.102.amzn2.x86_64                        6/20
+    amazon-ebs:   Updating   : libssh2-1.4.3-12.amzn2.2.1.x86_64                           7/20
+    amazon-ebs: ec2-instance-connect:x:998:996::/home/ec2-instance-connect:/sbin/nologin
+    amazon-ebs:   Updating   : ec2-instance-connect-1.1-10.amzn2.noarch                    8/20
+    amazon-ebs:   Updating   : amazon-ssm-agent-2.3.662.0-1.amzn2.x86_64                   9/20
+    amazon-ebs:   Updating   : kernel-tools-4.14.138-114.102.amzn2.x86_64                 10/20
+    amazon-ebs:   Cleanup    : kubeadm-1.15.2-0.x86_64                                    11/20
+    amazon-ebs:   Cleanup    : kubectl-1.15.2-0.x86_64                                    12/20
+    amazon-ebs:   Cleanup    : amazon-linux-extras-yum-plugin-1.6.8-1.amzn2.noarch        13/20
+    amazon-ebs:   Cleanup    : ec2-instance-connect-1.1-9.amzn2.noarch                    14/20
+    amazon-ebs:   Cleanup    : kernel-4.14.123-111.109.amzn2.x86_64                       15/20
+    amazon-ebs:   Cleanup    : amazon-linux-extras-1.6.8-1.amzn2.noarch                   16/20
+    amazon-ebs:   Cleanup    : kubelet-1.15.2-0.x86_64                                    17/20
+    amazon-ebs:   Cleanup    : libssh2-1.4.3-12.amzn2.2.x86_64                            18/20
+    amazon-ebs:   Cleanup    : amazon-ssm-agent-2.3.612.0-1.amzn2.x86_64                  19/20
+    amazon-ebs:   Cleanup    : kernel-tools-4.14.133-113.112.amzn2.x86_64                 20/20
+    amazon-ebs:   Verifying  : kubeadm-1.15.3-0.x86_64                                     1/20
+    amazon-ebs:   Verifying  : kernel-tools-4.14.138-114.102.amzn2.x86_64                  2/20
+    amazon-ebs:   Verifying  : amazon-linux-extras-1.6.9-1.amzn2.noarch                    3/20
+    amazon-ebs:   Verifying  : kubelet-1.15.3-0.x86_64                                     4/20
+    amazon-ebs:   Verifying  : amazon-ssm-agent-2.3.662.0-1.amzn2.x86_64                   5/20
+    amazon-ebs:   Verifying  : ec2-instance-connect-1.1-10.amzn2.noarch                    6/20
+    amazon-ebs:   Verifying  : amazon-linux-extras-yum-plugin-1.6.9-1.amzn2.noarch         7/20
+    amazon-ebs:   Verifying  : libssh2-1.4.3-12.amzn2.2.1.x86_64                           8/20
+    amazon-ebs:   Verifying  : kubectl-1.15.3-0.x86_64                                     9/20
+    amazon-ebs:   Verifying  : kernel-4.14.138-114.102.amzn2.x86_64                       10/20
+    amazon-ebs:   Verifying  : kubelet-1.15.2-0.x86_64                                    11/20
+    amazon-ebs:   Verifying  : kubectl-1.15.2-0.x86_64                                    12/20
+    amazon-ebs:   Verifying  : kernel-4.14.123-111.109.amzn2.x86_64                       13/20
+    amazon-ebs:   Verifying  : kubeadm-1.15.2-0.x86_64                                    14/20
+    amazon-ebs:   Verifying  : kernel-tools-4.14.133-113.112.amzn2.x86_64                 15/20
+    amazon-ebs:   Verifying  : amazon-linux-extras-1.6.8-1.amzn2.noarch                   16/20
+    amazon-ebs:   Verifying  : libssh2-1.4.3-12.amzn2.2.x86_64                            17/20
+    amazon-ebs:   Verifying  : ec2-instance-connect-1.1-9.amzn2.noarch                    18/20
+    amazon-ebs:   Verifying  : amazon-ssm-agent-2.3.612.0-1.amzn2.x86_64                  19/20
+    amazon-ebs:   Verifying  : amazon-linux-extras-yum-plugin-1.6.8-1.amzn2.noarch        20/20
+    amazon-ebs:
+    amazon-ebs: Removed:
+    amazon-ebs:   kernel.x86_64 0:4.14.123-111.109.amzn2
+    amazon-ebs:
+    amazon-ebs: Installed:
+    amazon-ebs:   kernel.x86_64 0:4.14.138-114.102.amzn2
+    amazon-ebs:
+    amazon-ebs: Updated:
+    amazon-ebs:   amazon-linux-extras.noarch 0:1.6.9-1.amzn2
+    amazon-ebs:   amazon-linux-extras-yum-plugin.noarch 0:1.6.9-1.amzn2
+    amazon-ebs:   amazon-ssm-agent.x86_64 0:2.3.662.0-1.amzn2
+    amazon-ebs:   ec2-instance-connect.noarch 0:1.1-10.amzn2
+    amazon-ebs:   kernel-tools.x86_64 0:4.14.138-114.102.amzn2
+    amazon-ebs:   kubeadm.x86_64 0:1.15.3-0
+    amazon-ebs:   kubectl.x86_64 0:1.15.3-0
+    amazon-ebs:   kubelet.x86_64 0:1.15.3-0
+    amazon-ebs:   libssh2.x86_64 0:1.4.3-12.amzn2.2.1
+    amazon-ebs:
+    amazon-ebs: Complete!
+    amazon-ebs: Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    amazon-ebs: Package ansible-2.4.6.0-2.amzn2.0.2.noarch already installed and latest version
+    amazon-ebs: Nothing to do
+==> amazon-ebs: Provisioning with Ansible...
+    amazon-ebs: Uploading Playbook directory to Ansible staging directory...
+    amazon-ebs: Creating directory: /tmp/packer-provisioner-ansible-local/5d664f8b-39a5-a348-d12b-d96b6b66725c
+    amazon-ebs: Uploading main Playbook file...
+    amazon-ebs: Uploading inventory file...
+    amazon-ebs: Uploading role directories...
+    amazon-ebs: Creating directory: /tmp/packer-provisioner-ansible-local/5d664f8b-39a5-a348-d12b-d96b6b66725c/roles/ansible-role-hardening-master
+    amazon-ebs: Executing Ansible: cd /tmp/packer-provisioner-ansible-local/5d664f8b-39a5-a348-d12b-d96b6b66725c && ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ansible-playbook /tmp/packer-provisioner-ansible-local/5d664f8b-39a5-a348-d12b-d96b6b66725c/main.yml --extra-vars "packer_build_name=amazon-ebs packer_builder_type=amazon-ebs packer_http_addr= -o IdentitiesOnly=yes"  -c local -i /tmp/packer-provisioner-ansible-local/5d664f8b-39a5-a348-d12b-d96b6b66725c/packer-provisioner-ansible-local609571058
+==> amazon-ebs: [DEPRECATION WARNING]: The use of 'include' for tasks has been deprecated. Use
+==> amazon-ebs: 'import_tasks' for static inclusions or 'include_tasks' for dynamic inclusions.
+==> amazon-ebs:  This feature will be removed in a future release. Deprecation warnings can be
+==> amazon-ebs: disabled by setting deprecation_warnings=False in ansible.cfg.
+==> amazon-ebs: [DEPRECATION WARNING]: include is kept for backwards compatibility but usage is
+==> amazon-ebs:  discouraged. The module documentation details page may explain more about this
+==> amazon-ebs:  rationale.. This feature will be removed in a future release. Deprecation
+==> amazon-ebs: warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+    amazon-ebs:
+    amazon-ebs: PLAY [127.0.0.1] ***************************************************************
+    amazon-ebs:
+    amazon-ebs: TASK [Gathering Facts] *********************************************************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : apt update] ******************************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : apt upgrade] *****************************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : import RedHat RPM key] *******************
+    amazon-ebs: skipping: [127.0.0.1] => (item=567E347AD0044ADE55BA8A5F199E2F91FD431D51)
+    amazon-ebs: skipping: [127.0.0.1] => (item=47DB287789B21722B6D95DDE5326810137017186)
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set yum.conf gpgcheck] *******************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set yum.conf clean_requirements] *********
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set yum.conf localpkg_gpgcheck] **********
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : comment yum.conf repo_gpgcheck] **********
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : yum update] ******************************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : disablenet.conf] *************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : disable kernel network modules] **********
+    amazon-ebs: changed: [127.0.0.1] => (item=dccp)
+    amazon-ebs: changed: [127.0.0.1] => (item=sctp)
+    amazon-ebs: changed: [127.0.0.1] => (item=rds)
+    amazon-ebs: changed: [127.0.0.1] => (item=tipc)
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : systemd system.conf] *********************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : systemd user.conf] ***********************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : systemd journald.conf] *******************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : logrotate.conf] **************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : timesyncd.conf] **************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : ubuntu package installation] *************
+    amazon-ebs: skipping: [127.0.0.1] => (item=[])
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : centos or redhat epel installation] ******
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : centos or redhat package installation] ***
+    amazon-ebs: skipping: [127.0.0.1] => (item=[])
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : ubuntu package removal] ******************
+    amazon-ebs: skipping: [127.0.0.1] => (item=[])
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : centos package removal] ******************
+    amazon-ebs: skipping: [127.0.0.1] => (item=[])
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : virtualbox package installation] *********
+    amazon-ebs: skipping: [127.0.0.1] => (item=[])
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : vmware package installation] *************
+    amazon-ebs: skipping: [127.0.0.1] => (item=[])
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Disable irqbalance] **********************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : stopping the irqbalance] *****************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : login.defs] ******************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : sysctl] **********************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : limits.conf] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : coredump.conf] ***************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : access.conf] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : securetty] *******************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : sshd_config] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : common-password] *************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : common-auth] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : common-account] **************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : login] ***********************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : pwquality] *******************************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : authconfig - passwdalgorithm] ************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : authconfig - usepwquality] ***************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : remove nullok from system-auth] **********
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : remove nullok from password-auth] ********
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : stat libuser] ****************************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set libuser sha512] **********************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set system-auth remember] ****************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : remove cron.deny and at.deny] ************
+    amazon-ebs: changed: [127.0.0.1] => (item=/etc/cron.deny)
+    amazon-ebs: changed: [127.0.0.1] => (item=/etc/at.deny)
+    amazon-ebs: ok: [127.0.0.1] => (item=/etc/cron.allow)
+    amazon-ebs: ok: [127.0.0.1] => (item=/etc/at.allow)
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : allow root cron and at] ******************
+    amazon-ebs: changed: [127.0.0.1] => (item=/etc/cron.allow)
+    amazon-ebs: changed: [127.0.0.1] => (item=/etc/at.allow)
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : mask atd] ********************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : disable ctrl-alt-del] ********************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : audit.rules] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set audit grub cmdline] ******************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : disablemod.conf] *************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : disable misc kernel modules] *************
+    amazon-ebs: changed: [127.0.0.1] => (item=bluetooth)
+    amazon-ebs: changed: [127.0.0.1] => (item=firewire-core)
+    amazon-ebs: changed: [127.0.0.1] => (item=n_hdlc)
+    amazon-ebs: changed: [127.0.0.1] => (item=net-pf-31)
+    amazon-ebs: changed: [127.0.0.1] => (item=soundcore)
+    amazon-ebs: changed: [127.0.0.1] => (item=thunderbolt)
+    amazon-ebs: changed: [127.0.0.1] => (item=usb-midi)
+    amazon-ebs: changed: [127.0.0.1] => (item=usb-storage)
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : aide service] ****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : aide timer] ******************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : stat aide.db] ****************************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : initialize aide on RedHat Distribution] ***
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : remove users] ****************************
+    amazon-ebs: failed: [127.0.0.1] (item=games) => {"changed": false, "failed": true, "item": "games", "msg": "userdel: group games not removed because it is not the primary group of user games.\nuserdel: games mail spool (/var/mail/games) not found\nuserdel: /usr/games not owned by games, not removing\n", "name": "games", "rc": 12}
+    amazon-ebs: ok: [127.0.0.1] => (item=gnats)
+    amazon-ebs: ok: [127.0.0.1] => (item=irc)
+    amazon-ebs: ok: [127.0.0.1] => (item=list)
+    amazon-ebs: ok: [127.0.0.1] => (item=news)
+    amazon-ebs: ok: [127.0.0.1] => (item=uucp)
+    amazon-ebs: ...ignoring
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : remove suid/sgid] ************************
+    amazon-ebs: failed: [127.0.0.1] (item=/bin/ntfs-3g) => {"changed": false, "failed": true, "item": "/bin/ntfs-3g", "msg": "file (/bin/ntfs-3g) is absent, cannot continue", "path": "/bin/ntfs-3g", "state": "absent"}
+    amazon-ebs: changed: [127.0.0.1] => (item=/usr/bin/at)
+    amazon-ebs: failed: [127.0.0.1] (item=/bin/fusermount) => {"changed": false, "failed": true, "item": "/bin/fusermount", "msg": "file (/bin/fusermount) is absent, cannot continue", "path": "/bin/fusermount", "state": "absent"}
+    amazon-ebs: changed: [127.0.0.1] => (item=/bin/mount)
+    amazon-ebs: ok: [127.0.0.1] => (item=/bin/ping)
+    amazon-ebs: ok: [127.0.0.1] => (item=/bin/ping6)
+    amazon-ebs: changed: [127.0.0.1] => (item=/bin/su)
+    amazon-ebs: changed: [127.0.0.1] => (item=/bin/umount)
+    amazon-ebs: changed: [127.0.0.1] => (item=/sbin/mount.nfs)
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/bin/bsd-write) => {"changed": false, "failed": true, "item": "/usr/bin/bsd-write", "msg": "file (/usr/bin/bsd-write) is absent, cannot continue", "path": "/usr/bin/bsd-write", "state": "absent"}
+    amazon-ebs: changed: [127.0.0.1] => (item=/usr/bin/chage)
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/bin/chfn) => {"changed": false, "failed": true, "item": "/usr/bin/chfn", "msg": "file (/usr/bin/chfn) is absent, cannot continue", "path": "/usr/bin/chfn", "state": "absent"}
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/bin/chsh) => {"changed": false, "failed": true, "item": "/usr/bin/chsh", "msg": "file (/usr/bin/chsh) is absent, cannot continue", "path": "/usr/bin/chsh", "state": "absent"}
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/bin/mlocate) => {"changed": false, "failed": true, "item": "/usr/bin/mlocate", "msg": "file (/usr/bin/mlocate) is absent, cannot continue", "path": "/usr/bin/mlocate", "state": "absent"}
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/bin/mtr) => {"changed": false, "failed": true, "item": "/usr/bin/mtr", "msg": "file (/usr/bin/mtr) is absent, cannot continue", "path": "/usr/bin/mtr", "state": "absent"}
+    amazon-ebs: changed: [127.0.0.1] => (item=/usr/bin/newgrp)
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/bin/pkexec) => {"changed": false, "failed": true, "item": "/usr/bin/pkexec", "msg": "file (/usr/bin/pkexec) is absent, cannot continue", "path": "/usr/bin/pkexec", "state": "absent"}
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/bin/traceroute6.iputils) => {"changed": false, "failed": true, "item": "/usr/bin/traceroute6.iputils", "msg": "file (/usr/bin/traceroute6.iputils) is absent, cannot continue", "path": "/usr/bin/traceroute6.iputils", "state": "absent"}
+    amazon-ebs: changed: [127.0.0.1] => (item=/usr/bin/wall)
+    amazon-ebs: changed: [127.0.0.1] => (item=/usr/bin/write)
+    amazon-ebs: failed: [127.0.0.1] (item=/usr/sbin/pppd) => {"changed": false, "failed": true, "item": "/usr/sbin/pppd", "msg": "file (/usr/sbin/pppd) is absent, cannot continue", "path": "/usr/sbin/pppd", "state": "absent"}
+    amazon-ebs: ...ignoring
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : stat init.d/rc] **************************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set default rc umask] ********************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set default init umask] ******************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : stat bashrc] *****************************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set default bashrc umask] ****************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : stat csh.cshrc] **************************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set default csh.cshrc umask] *************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set default profile umask] ***************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : export TMOUT] ****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : copying the oms cred file] ***************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : set path] ********************************
+    amazon-ebs: ok: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : path script] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : resolved.conf] ***************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : add notice] ******************************
+    amazon-ebs: changed: [127.0.0.1] => (item=/etc/issue)
+    amazon-ebs: changed: [127.0.0.1] => (item=/etc/issue.net)
+    amazon-ebs: changed: [127.0.0.1] => (item=/etc/motd)
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : disable apport] **************************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : lock root account] ***********************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : mount /proc] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Secure Shared Memory - mount tmpfs] ******
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Securing /var/tmp] ***********************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Creating the symbolic to /tmp] ***********
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Enable autoupdate in Ubuntu] *************
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Enabling automatic security updates on redhat or centos] ***
+    amazon-ebs: skipping: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : enable multi-user mode] ******************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : make  multi-user mode default] ***********
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Creating /usr/tmpDSK] ********************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Creating a filesystem on /usr/tmpDSK] ****
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Secure /tmp] *****************************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Cleaning the old files] ******************
+    amazon-ebs: ok: [127.0.0.1] => (item=/tmp/*)
+    amazon-ebs: ok: [127.0.0.1] => (item=/var/tmp/*)
+    amazon-ebs: ok: [127.0.0.1] => (item=/etc/udev/rules.d/70-persistent-net.rules)
+    amazon-ebs:
+    amazon-ebs: TASK [ansible-role-hardening-master : Cleanup the log file] ********************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: RUNNING HANDLER [ansible-role-hardening-master : reload auditd] ****************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: RUNNING HANDLER [ansible-role-hardening-master : generate auditd] **************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: RUNNING HANDLER [ansible-role-hardening-master : restart sysctl] ***************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: RUNNING HANDLER [ansible-role-hardening-master : reload systemd] ***************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: RUNNING HANDLER [ansible-role-hardening-master : enable aidecheck] *************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: RUNNING HANDLER [ansible-role-hardening-master : start aidecheck] **************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: RUNNING HANDLER [ansible-role-hardening-master : restart sshd] *****************
+    amazon-ebs: changed: [127.0.0.1]
+    amazon-ebs:
+    amazon-ebs: PLAY RECAP *********************************************************************
+    amazon-ebs: 127.0.0.1                  : ok=64   changed=54   unreachable=0    failed=0
+    amazon-ebs:
+==> amazon-ebs: Stopping the source instance...
+    amazon-ebs: Stopping instance
+==> amazon-ebs: Waiting for the instance to stop...
+==> amazon-ebs: Creating AMI ami-0f6e68355d2e88eb8 from instance i-0cbc8224f81ace8a0
+    amazon-ebs: AMI: ami-0fbf85e441001a16a
+==> amazon-ebs: Waiting for AMI to become ready...
+==> amazon-ebs: Adding tags to AMI (ami-0fbf85e441001a16a)...
+==> amazon-ebs: Tagging snapshot: snap-00e07d5d419646fd8
+==> amazon-ebs: Creating AMI tags
+    amazon-ebs: Adding tag: "Owner": "Sapient_SRE"
+    amazon-ebs: Adding tag: "Team": "SRE_Batch01"
+    amazon-ebs: Adding tag: "Name": "ami-0f6e68355d2e88eb8"
+==> amazon-ebs: Creating snapshot tags
+==> amazon-ebs: Terminating the source AWS instance...
+==> amazon-ebs: Cleaning up any extra volumes...
+==> amazon-ebs: No volumes to clean up, skipping
+==> amazon-ebs: Deleting temporary keypair...
+Build 'amazon-ebs' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs: AMIs were created:
+us-east-1: ami-0fbf85e441001a16a
+
+[root@kube pack]# ll
+total 4
+drwxr-xr-x 3 root root   59 Aug 28 07:51 ansible
+-rw-r--r-- 1 root root 1381 Aug 28 09:55 linux.json
