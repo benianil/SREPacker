@@ -1,0 +1,49 @@
+{
+  "variables": {
+    "ami_name": "ami-0f6e68355d2e88eb8",
+    "vpc_id": "default",
+    "subnet_id": "subnet-f7feb6ab",
+    "sg_id": "sg-06b1c2c4db23cc07a",
+    "owner_tag": "Sapient_SRE",
+    "team_tag" : "SRE_Batch01"
+  },
+  "builders": [{
+      "type": "amazon-ebs",
+      "ami_name": "ami-0f6e68355d2e88eb8",
+      "region": "us-east-1",     
+      "source_ami_filter" : {
+      "filters": {
+        "virtualization-type": "hvm",
+        "root-device-type": "ebs"
+      },
+      "most_recent": true,
+      "owners": ["655293529334"]
+      },
+      "instance_type": "t2.micro",
+      "vpc_id": "{{user `vpc_id`}}",
+      "subnet_id": "{{user `subnet_id`}}",
+      "security_group_ids": "{{user `sg_id`}}",
+      "ssh_username": "ec2-user",
+      "tags": {
+        "Name": "{{user `ami_name`}}",
+        "Owner": "{{user `owner_tag`}}",
+        "Team": "{{user `team_tag`}}"
+      }
+    }],
+  "provisioners" : [
+  	{
+      	"type" : "shell",
+	"execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
+      	"inline" : ["sleep 30",
+		     "sudo yum  update -y",
+	             "sudo yum  install ansible -y"]
+        },
+	{
+        "type": "ansible-local",
+        "playbook_dir": "/home/ec2-user/Packer_Linux_Azure/ansible",
+        "role_paths": "/etc/ansible/roles/ansible-role-hardening-master",
+        "playbook_file": "ansible/main.yml"
+    }
+
+  ]
+}
